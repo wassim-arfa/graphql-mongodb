@@ -9,6 +9,12 @@ export class StudentResolver
     constructor(private studentService: StudentService)
     {}
 
+    @Query(returns => [StudentType])
+    students() 
+    {
+        return this.studentService.getStudents();
+    }
+
     @Mutation(returns => StudentType)
     createStudent(@Args('createStudentInput') createStudentInput: CreateStudentInput)
     {
