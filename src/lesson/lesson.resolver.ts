@@ -9,14 +9,9 @@ export class LessonResolver
     {}
 
     @Query(returns => LessonType)
-    lesson() 
+    lesson( @Args('id') id: string) 
     {
-        return {
-            id: '123456789',
-            name: 'Math Class',
-            startDate: (new Date()).toISOString(),
-            endDate: (new Date()).toISOString()
-        };
+        return this.lessonService.getLesson(id);
     }
 
     @Mutation(returns => LessonType)
